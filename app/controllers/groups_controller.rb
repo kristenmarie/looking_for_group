@@ -1,11 +1,11 @@
 class GroupsController < ApplicationController
 
   def home
-    @groups = groups.all
+    @groups = Group.all
   end
 
   def index
-    @groups = groups.all
+    @groups = Group.all
   end
 
   def show
