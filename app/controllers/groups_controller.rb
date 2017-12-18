@@ -51,7 +51,7 @@ class GroupsController < ApplicationController
   private
 
   def group_params
-    params.require(:group).permit(:game_title, :players_needed, :location, :play_location)
+    params.require(:group).permit(:game_title, :players_needed, :location, :play_location, :description, :name, :meetup_date, :meetup_time)
   end
 
 end
