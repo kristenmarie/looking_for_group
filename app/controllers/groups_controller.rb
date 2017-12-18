@@ -18,6 +18,7 @@ class GroupsController < ApplicationController
 
   def create
     @group = Group.new(group_params)
+    @group.admin_id = current_user.id
    if @group.save
      flash[:notice] = "Your group has been created!"
      redirect_to group_path(@group)
@@ -48,7 +49,7 @@ class GroupsController < ApplicationController
   end
 
   private
-  
+
   def group_params
     params.require(:group).permit(:game_title, :players_needed, :location, :play_location)
   end
