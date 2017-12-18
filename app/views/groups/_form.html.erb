@@ -1,0 +1,29 @@
+<%= render "layouts/errors", :object => @group %>
+
+<%= form_for @group do |f| %>
+  <div class="form-group">
+    <%= f.label :game_title, class: "control-label"%>
+    <%= f.text_field :game_title, class: "form-control" %>
+  </div>
+  <div class="form-group">
+    <%= f.label :players_needed, class: "control-label" %>
+    <%= f.number_field :players_needed, class: "form-control" %>
+  </div>
+  <div class="form-group">
+    <%= f.label :location, class: "control-label" %>
+    <%= f.text_field :location, class: "form-control" %>
+  </div>
+  <div class="form-group">
+    <%= f.label :play_location, class: "control-label"%>
+    <%= f.text_field :play_location, class: "form-control" %>
+  </div>
+  <div class="form-group">
+    <%= f.label :playtime, class: "control-label"%>
+    <%= f.text_field :playtime, class: "form-control" %>
+  </div>
+  <div class="form-group">
+    <%= f.label :description, class: "control-label"%>
+    <%= f.text_area :description, class: "form-control" %>
+  </div>
+  <%= f.submit class: "btn" %>
+<% end %>
