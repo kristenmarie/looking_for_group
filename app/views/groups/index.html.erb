@@ -1,0 +1,27 @@
+<h1>Groups Galore</h1>
+
+<% if @groups.any? %>
+<div class="flex-container">
+  <% @groups.each do |group| %>
+  <div class="group">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3 class="panel-title">  <%= group.name %> </h3>
+      </div>
+      <div class="panel-body">
+        <p><strong>What we're playing:</strong> <%= group.game_title %></p>
+        <p><strong>Players needed:</strong> <%= group.players_needed %></p>
+        <p><strong>Location:</strong> <%= group.location %></p>
+        <p><strong>Play location:</strong> <%= group.play_location %></p>
+        <p><strong>Next Meetup:</strong> <%= group.meetup_date %> at <%= group.meetup_time %></p>
+        <p><strong>A bit abouts us:</strong></p>
+        <p><%= group.description %></p>
+      </div>
+    </div>
+  </div>
+  <% end %>
+</div>
+<% else %>
+  <p>There are currently no groups D:</p>
+
+<% end %>
