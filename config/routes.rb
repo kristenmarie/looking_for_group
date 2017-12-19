@@ -3,4 +3,5 @@ Rails.application.routes.draw do
   root :to => 'groups#home'
 
   resources :groups
+  resources :memberships
 end
