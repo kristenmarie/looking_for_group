@@ -1,8 +1,12 @@
 <h1>
   <%= @group.name %>'s deets
-  <% if current_user.id == @group.admin_id %>
+  <% if current_user.id == @group.admin_id || current_user.admin %>
     <button class="btn btn-warning"><%= link_to "Edit", edit_group_path(@group) %></button>
     <button class="btn btn-success"> <%= link_to "Memberships", group_memberships_path(@group) %> </button>
+    <button class="btn btn-danger"><%= link_to "Delete", group_path(@group),
+                               :data => {:confirm => "Are you sure?",
+                                              :method => "delete"} %></button>
+
   <% end %>
 </h1>
 
