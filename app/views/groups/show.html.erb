@@ -7,3 +7,5 @@
 <p>Next meetup: <%= @group.meetup_date %> at <%= @group.meetup_time %></p>
 <p><strong>A bit about us:</strong></p>
 <p><%= @group.description %></p>
+
+<%= link_to "Join #{@group.name}!", group_memberships_path(@group), :method => :create %>
