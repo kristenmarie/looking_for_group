@@ -35,7 +35,7 @@ class GroupsController < ApplicationController
     @group = Group.find(params[:id])
     if @group.update(group_params)
       flash[:notice] = "Your #{@group.game_title} group has been updated!"
-      redirect_to product_path(@group)
+      redirect_to group_path(@group)
     else
       render :edit
     end
