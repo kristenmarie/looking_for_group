@@ -23,4 +23,11 @@ describe Membership do
       expect(Membership.accepted.length).to eq(1)
     end
   end
+
+  describe 'rejected status scope' do
+    it 'returns all memberships with rejected status' do
+      @membership1.update!(:status => 'rejected')
+      expect(Membership.rejected.length).to eq(1)
+    end
+  end
 end
