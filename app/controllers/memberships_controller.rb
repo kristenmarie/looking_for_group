@@ -9,13 +9,20 @@ class MembershipsController < ApplicationController
   end
 
   def update
+    @group = Group.find(params[:group_id])
     @membership = Membership.find(params[:id])
-    @membership.update(:status => 'approved')
+    if current_user.id == @group.admin_id
+      @membership.update(:status => 'approved')
+      flash[:notice] = "Membership status has been updated!"
+      redirect_to group_memberships_path(@group)
+    else
+      redirect_to group_path(@group)
+    end
   end
 
   def index
     @group = Group.find(params[:group_id])
-    @accepted = @group.memberships.accepted
+    @approved = @group.memberships.approved
     @pending = @group.memberships.pending
     @rejected = @group.memberships.rejected
   end

@@ -1,8 +1,8 @@
 <h1><%= @group.name %> Members</h1>
 
 <h3>Current Group:</h3>
-<% if @accepted.any? %>
-  <% @accepted.each do |membership| %>
+<% if @approved.any? %>
+  <% @approved.each do |membership| %>
     <p><%= User.find(membership.user_id).username %></p>
   <% end %>
 <% else %>
@@ -14,7 +14,7 @@
 
 <% if @pending.any? %>
   <% @pending.each do |membership|%>
-    <p><%= User.find(membership.user_id).username %></p>
+    <p><%= User.find(membership.user_id).username %> <button class='btn btn-success'><%= link_to "Approve", group_membership_path(@group, membership), :method => :put %></button> </p>
   <% end %>
 <% else %>
   <p>There are currently no pending memberships.</p>
