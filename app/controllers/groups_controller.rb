@@ -49,9 +49,14 @@ class GroupsController < ApplicationController
 
   def destroy
     @group = Group.find(params[:id])
-    @group.destroy
-    flash[:alert] = "Group has been deleted."
-    redirect_to products_path
+    if current_user.id == @group.admin_id
+      @group.destroy
+      flash[:notice] = "Group has been deleted."
+      redirect_to groups_path
+    else
+      flash[:alert] = "You are not authorized to delete this group."
+      redirect_to group_path(@group)
+    end
   end
 
   private
