@@ -8,4 +8,8 @@ class ApplicationController < ActionController::Base
     def configure_permitted_parameters
       devise_parameter_sanitizer.permit(:sign_up, keys: [:username])
     end
+
+    def login_required
+      redirect_to('/') if current_user.blank?
+    end
 end

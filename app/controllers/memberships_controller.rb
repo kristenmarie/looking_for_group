@@ -1,5 +1,4 @@
 class MembershipsController < ApplicationController
-
   def create
     @group = Group.find(params[:group_id])
     @membership = Membership.new(:group_id => @group.id, :user_id => current_user.id)

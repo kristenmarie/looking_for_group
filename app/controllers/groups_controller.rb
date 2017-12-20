@@ -1,4 +1,5 @@
 class GroupsController < ApplicationController
+  before_filter :login_required, :only => :new
 
   def home
     @groups = Group.all
@@ -33,11 +34,16 @@ class GroupsController < ApplicationController
 
   def update
     @group = Group.find(params[:id])
-    if @group.update(group_params)
-      flash[:notice] = "Your #{@group.game_title} group has been updated!"
-      redirect_to group_path(@group)
+    if current_user.id == @group.admin_id
+      if @group.update(group_params)
+        flash[:notice] = "Your #{@group.game_title} group has been updated!"
+        redirect_to group_path(@group)
+      else
+        render :edit
+      end
     else
-      render :edit
+      flash[:alert] = "You are not authorized to make changes to this group."
+      redirect_to group_path(@group)
     end
   end
 
