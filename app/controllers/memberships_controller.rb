@@ -14,4 +14,9 @@ class MembershipsController < ApplicationController
     @membership.update(:status => 'approved')
   end
 
+  def index
+    @group = Group.find(params[:group_id])
+    @memberships = @group.memberships
+  end
+
 end

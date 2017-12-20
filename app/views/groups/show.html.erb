@@ -2,6 +2,7 @@
   <%= @group.name %>'s deets
   <% if current_user.id == @group.admin_id %>
     <button class="btn btn-warning"><%= link_to "Edit", edit_group_path(@group) %></button>
+    <button class="btn btn-success"> <%= link_to "Memberships", group_memberships_path(@group) %> </button>
   <% end %>
 </h1>
 
