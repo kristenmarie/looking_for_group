@@ -1,4 +1,10 @@
-<h1> <%= @group.name %>'s deets </h1>
+<h1>
+  <%= @group.name %>'s deets
+  <% if current_user.id == @group.admin_id %>
+    <button class="btn btn-warning"><%= link_to "Edit", edit_group_path(@group) %></button>
+  <% end %>
+</h1>
+
 
 <p>We're playing: <%= @group.game_title %></p>
 <p>Players needed: <%= @group.players_needed %></p>
