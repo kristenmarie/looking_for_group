@@ -1,1 +1,30 @@
 <h1><%= @group.name %> Members</h1>
+
+<h3>Current Group:</h3>
+<% if @accepted.any? %>
+  <% @accepted.each do |membership| %>
+    <p><%= User.find(membership.user_id).username %></p>
+  <% end %>
+<% else %>
+  <p>There are currently no members in your group! You can approve pending membership requests below.</p>
+<% end %>
+
+
+<h3>Pending:</h3>
+
+<% if @pending.any? %>
+  <% @pending.each do |membership|%>
+    <p><%= User.find(membership.user_id).username %></p>
+  <% end %>
+<% else %>
+  <p>There are currently no pending memberships.</p>
+<% end %>
+
+
+
+<% if @rejected.any? %>
+  <h3>Rejected:</h3>
+  <% @rejected.each do |membership| %>
+    <%= User.find(membership.user_id).username  %>
+  <% end %>
+<% end %>

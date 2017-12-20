@@ -16,7 +16,9 @@ class MembershipsController < ApplicationController
 
   def index
     @group = Group.find(params[:group_id])
-    @memberships = @group.memberships
+    @accepted = @group.memberships.accepted
+    @pending = @group.memberships.pending
+    @rejected = @group.memberships.rejected
   end
 
 end
