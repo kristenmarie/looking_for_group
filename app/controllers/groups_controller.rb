@@ -6,7 +6,7 @@ class GroupsController < ApplicationController
   end
 
   def index
-    @groups = Group.all
+    @groups = Group.not_full
     if params[:search]
       @groups = Group.search(params[:search]).order("created_at DESC")
     else

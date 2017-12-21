@@ -1,6 +1,7 @@
-<h1>Groups Galore</h1>
 
 <% if @groups.any? %>
+<h1>Groups Galore</h1>
+<h3>These Groups still need members:</h3>
 <div class="flex-container">
   <% @groups.each do |group| %>
   <div class="group">
@@ -21,9 +22,7 @@
   </div>
   <% end %>
 </div>
-<% else %>
-  <p>There are currently no groups D:</p>
 <% end %>
 <% if @groups.blank? %>
-  <h4>There are no recipes containing the term <%= params[:search] %>.</h4>
+  <h4>There are no groups containing the term <%= params[:search] %>.</h4>
 <% end %>

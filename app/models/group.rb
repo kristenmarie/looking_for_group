@@ -11,7 +11,7 @@ class Group < ActiveRecord::Base
     groups = Group.all
     not_full = []
     groups.each do |group|
-      if group.players_needed < group.memberships.length
+      if group.players_needed > group.memberships.length
         not_full.push(group)
       end
     end
