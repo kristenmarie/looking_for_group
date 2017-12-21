@@ -12,15 +12,15 @@ describe Membership do
 
   describe 'pending status scope' do
     it 'returns all memberships with pending status' do
-      @membership2.update!(:status => 'accepted')
+      @membership2.update!(:status => 'approved')
       expect(Membership.pending.length).to eq(1)
     end
   end
 
   describe 'accepted status scope' do
     it 'returns all memberships with accepted status' do
-      @membership2.update!(:status => 'accepted')
-      expect(Membership.accepted.length).to eq(1)
+      @membership2.update!(:status => 'approved')
+      expect(Membership.approved.length).to eq(1)
     end
   end
 
