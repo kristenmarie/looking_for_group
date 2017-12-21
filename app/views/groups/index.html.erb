@@ -23,5 +23,7 @@
 </div>
 <% else %>
   <p>There are currently no groups D:</p>
-
+<% end %>
+<% if @groups.blank? %>
+  <h4>There are no recipes containing the term <%= params[:search] %>.</h4>
 <% end %>
