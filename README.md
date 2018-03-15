@@ -42,10 +42,14 @@ Web application where users can create account in order to create and join group
 
 * Users can send more than one join request at a time.
 
+## Updates
+
+#### 03.15.2018
+
+* Added user profile pages and avatars
+
 ## Future functionality
 
-* User profile pages
-* Users can upload an avatar
 * Add AJAX to group admin interface
 * Pagination
 * Group message boards (available to members only)
