@@ -10,38 +10,38 @@
 
   <body>
     <nav class="navbar navbar-default">
-     <div class="container-fluid">
-       <div class="navbar-header">
-         <%= link_to "LookingForGroup", root_path, class: "navbar-brand" %>
-       </div>
-       <ul class="nav navbar-nav navbar-right">
-         <% if current_user %>
-           <li><%= link_to current_user.username, users_path %></li>
-           <li><%= link_to "  Sign out  ", "/users/sign_out", method: :delete %></li>
-           <li> <%= link_to " All Groups ", groups_path %></li>
-           <li> <%= link_to "Create Group", new_group_path %> </li>
-           <li>
-             <div class="navbar-form">
-               <%= form_tag(groups_path, :method => "get", id: "search-form") do %>
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <%= link_to "LookingForGroup", root_path, class: "navbar-brand" %>
+        </div>
+        <ul class="nav navbar-nav navbar-right">
+          <% if current_user %>
+            <li><%= link_to current_user.username, users_path %></li>
+            <li><%= link_to "  Sign out  ", "/users/sign_out", method: :delete %></li>
+            <li> <%= link_to " All Groups ", groups_path %></li>
+            <li> <%= link_to "Create Group", new_group_path %> </li>
+            <li>
+              <div class="navbar-form">
+                <%= form_tag(groups_path, :method => "get", id: "search-form") do %>
                 <%= text_field_tag :search, params[:search], placeholder: "Search Groups", class: "form-control"%>
                 <%= button_tag(type: 'submit', class: "btn submit", id: 'validForm') do %>
                   <span class="glyphicon glyphicon-search"></span>
                 <% end %>
-               <% end %>
-             </div>
-           </li>
-           <% if current_user.admin %>
+                <% end %>
+              </div>
+            </li>
+            <% if current_user.admin %>
 
-           <% end %>
-         <% else %>
-           <li><%= link_to " Sign up ", '/users/sign_up' %></li>
-           <li><%= link_to "  Sign in ", '/users/sign_in' %></li>
-         <% end %>
-       </ul>
-     </div>
-   </nav>
+            <% end %>
+          <% else %>
+            <li><%= link_to " Sign up ", '/users/sign_up' %></li>
+            <li><%= link_to "  Sign in ", '/users/sign_in' %></li>
+          <% end %>
+        </ul>
+      </div>
+    </nav>
 
-   <div class="container">
+    <div class="container">
     <% if flash[:notice] != nil %>
       <div class="alert alert-success">
         <%= flash[:notice] %>
