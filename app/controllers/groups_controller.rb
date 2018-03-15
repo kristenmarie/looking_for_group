@@ -26,6 +26,8 @@ class GroupsController < ApplicationController
     @group = Group.new(group_params)
     @group.admin_id = current_user.id
     if @group.save
+      @membership = Membership.new(:group_id => @group.id, :user_id => current_user.id)
+      @membership.update(:status => 'approved')
       flash[:notice] = "Your group has been created!"
       redirect_to group_path(@group)
     else
