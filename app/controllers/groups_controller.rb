@@ -25,12 +25,12 @@ class GroupsController < ApplicationController
   def create
     @group = Group.new(group_params)
     @group.admin_id = current_user.id
-   if @group.save
-     flash[:notice] = "Your group has been created!"
-     redirect_to group_path(@group)
-   else
-     render :new
-   end
+    if @group.save
+      flash[:notice] = "Your group has been created!"
+      redirect_to group_path(@group)
+    else
+      render :new
+    end
   end
 
   def edit

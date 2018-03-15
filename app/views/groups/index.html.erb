@@ -23,6 +23,8 @@
   <% end %>
 </div>
 <% end %>
-<% if @groups.blank? %>
+<% if @groups.blank? && params[:search]%>
   <h4>There are no groups containing the term <%= params[:search] %>.</h4>
+<% else %>
+  <h4>There are currently no groups.
 <% end %>
