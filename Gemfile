@@ -14,7 +14,7 @@ gem 'bootstrap-sass', '~> 3.3.7'
 gem 'bullet'
 gem 'faker'
 gem 'devise', '~> 4.3.0'
-gem "paperclip", "~> 5.0.0"
+gem "paperclip", "~> 5.2.1"
 gem 'rails_admin', '~> 1.2'
 gem 'cancancan', '~> 2.0'
 gem 'sqlite3'
