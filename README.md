@@ -1,6 +1,6 @@
 # LookingForGroup
 
-#### A Ruby on Rails application, 03.15.2017
+#### A Ruby on Rails application, 03.15.2018
 
 ![image](image link here)
 
